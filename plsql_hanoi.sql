@@ -42,8 +42,8 @@ declare
             exit when i = 0;
         end loop;
         i := i + 1;
-        if i &amp;amp;gt; 1 then
-            if tablero(nro_de_pila)(i-1) &amp;amp;gt; disc then
+        if i > 1 then
+            if tablero(nro_de_pila)(i-1) > disc then
                 tablero(nro_de_pila)(i) := disc;
             else
                 return 'ERROR_INTENTA_COLOCAR_MAYOR_SOBRE_MENOR';
@@ -65,7 +65,7 @@ declare
             i := i - 1;
             exit when i = 0;
         end loop;
-        if i &amp;amp;gt; 0 then
+        if i > 0 then
             disc := tablero(nro_de_pila)(i);
             tablero(nro_de_pila)(i) := 0;
             return '';
@@ -124,10 +124,10 @@ declare
         movimiento_inverso tipo_movimiento;
     begin
         validar_victoria(path);
-        if cant_levels&amp;amp;gt;0 then
+        if cant_levels > 0 then
             for i in 1..3 loop
                 for j in 1..3 loop
-                    if i&amp;amp;lt;&amp;amp;gt;j then
+                    if i <> j then
                         movimiento.origen := i;
                         movimiento.destino := J;
                         if mover_ficha_en_tablero(movimiento) is null then
